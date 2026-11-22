@@ -4,7 +4,7 @@ import datetime
 from flask import Flask, render_template, request, redirect, url_for, session
 import booking
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=".", static_folder=".", static_url_path="/static")
 app.secret_key = "school-project"     # needed so the site can remember who is logged in
 
 
