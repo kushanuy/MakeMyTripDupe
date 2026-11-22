@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+  <h1>Book Domestic Flights</h1>
+  <form class="card" action="/search" method="get">
+    From
+    <select name="origin">
+      {% for c in cities %}<option>{{ c }}</option>{% endfor %}
+    </select>
+    To
+    <select name="destination">
+      {% for c in cities %}<option {% if c == "Delhi" %}selected{% endif %}>{{ c }}</option>{% endfor %}
+    </select>
+    Date
+    <input type="date" name="date" min="{{ today }}" value="{{ today }}">
+    Class
+    <select name="cabin">
+      <option>Economy</option>
+      <option>Business</option>
+    </select>
+    <button>SEARCH</button>
+  </form>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+</div>
+{% endblock %}

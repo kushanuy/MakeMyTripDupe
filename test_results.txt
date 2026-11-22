@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/claude/tripeasy
+plugins: platformdirs-4.13.5, anyio-4.15.1
+collecting ... collected 28 items
+
+test_tripeasy.py::test_tc01_search_valid_route_gives_flights PASSED      [  3%]
+test_tripeasy.py::test_tc02_same_city_gives_error PASSED                 [  7%]
+test_tripeasy.py::test_tc03_past_date_gives_error PASSED                 [ 10%]
+test_tripeasy.py::test_tc04_empty_date_gives_error PASSED                [ 14%]
+test_tripeasy.py::test_tc05_business_costs_double_economy PASSED         [ 17%]
+test_tripeasy.py::test_tc06_valid_booking_is_confirmed PASSED            [ 21%]
+test_tripeasy.py::test_tc07_booking_reduces_seats_by_one PASSED          [ 25%]
+test_tripeasy.py::test_tc08_sold_out_flight_cannot_be_booked PASSED      [ 28%]
+test_tripeasy.py::test_tc09_empty_name_gives_error PASSED                [ 32%]
+test_tripeasy.py::test_tc10_name_with_numbers_or_symbols_gives_error PASSED [ 35%]
+test_tripeasy.py::test_tc11_bad_age_gives_error PASSED                   [ 39%]
+test_tripeasy.py::test_tc12_bad_phone_gives_error PASSED                 [ 42%]
+test_tripeasy.py::test_tc13_cancel_gives_90_percent_refund PASSED        [ 46%]
+test_tripeasy.py::test_tc14_cancel_gives_the_seat_back PASSED            [ 50%]
+test_tripeasy.py::test_tc15_cancel_twice_gives_error PASSED              [ 53%]
+test_tripeasy.py::test_tc16_cannot_cancel_someone_elses_booking PASSED   [ 57%]
+test_tripeasy.py::test_tc17_correct_login_works PASSED                   [ 60%]
+test_tripeasy.py::test_tc18_wrong_password_gives_error PASSED            [ 64%]
+test_tripeasy.py::test_tc19_unknown_email_gives_error PASSED             [ 67%]
+test_tripeasy.py::test_tc20_empty_login_gives_error PASSED               [ 71%]
+test_tripeasy.py::test_tc21_home_page_loads PASSED                       [ 75%]
+test_tripeasy.py::test_tc22_booking_page_needs_login PASSED              [ 78%]
+test_tripeasy.py::test_tc23_login_returns_to_booking_with_saved_details PASSED [ 82%]
+test_tripeasy.py::test_tc24_wrong_password_shows_error_on_page PASSED    [ 85%]
+test_tripeasy.py::test_tc25_unknown_email_shows_no_account_message PASSED [ 89%]
+test_tripeasy.py::test_tc26_full_booking_on_website PASSED               [ 92%]
+test_tripeasy.py::test_tc27_my_trips_shows_booking_and_cancel_works PASSED [ 96%]
+test_tripeasy.py::test_tc28_logout_then_my_trips_needs_login PASSED      [100%]
+
+============================== 28 passed in 0.20s ==============================

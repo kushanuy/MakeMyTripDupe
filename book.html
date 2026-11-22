@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+  <h2>Passenger details</h2>
+  <p>{{ flight.airline }} {{ flight.flight_id }} · {{ flight.origin }} → {{ flight.destination }}
+     at {{ flight.time }} · {{ date }} · {{ cabin }} · <b>₹{{ price }}</b></p>
+
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post">
+    <p>Name <input name="name" value="{{ form.name }}"></p>
+    <p>Age <input name="age" value="{{ form.age }}"></p>
+    <p>Gender
+      <select name="gender">
+        <option value="">Choose</option>
+        <option {% if form.gender == "Male" %}selected{% endif %}>Male</option>
+        <option {% if form.gender == "Female" %}selected{% endif %}>Female</option>
+        <option {% if form.gender == "Other" %}selected{% endif %}>Other</option>
+      </select>
+    </p>
+    <p>Phone <input name="phone" value="{{ form.phone }}"></p>
+    <p>Email <input value="{{ email }}" readonly></p>
+    <button>CONFIRM &amp; PAY ₹{{ price }}</button>
+  </form>
+</div>
+{% endblock %}

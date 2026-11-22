@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+  <h2 class="ok">Booking Confirmed!</h2>
+  <p>Your PNR: <span class="pnr">{{ b.pnr }}</span></p>
+  <p>{{ b.flight.airline }} {{ b.flight.flight_id }} · {{ b.flight.origin }} → {{ b.flight.destination }}
+     at {{ b.flight.time }} on {{ b.travel_date }} ({{ b.cabin }})</p>
+  <p>Passenger: {{ b.name }}, {{ b.age }}, {{ b.gender }} · {{ b.phone }}</p>
+  <p><b>Total paid: ₹{{ b.fare }}</b> (payment is pretend, no real money)</p>
+  <a class="btn" href="/">Book another flight</a>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+  <h2>{{ origin }} → {{ destination }}</h2>
+  <p>{{ date }} · {{ cabin }}</p>
+
+  {% for f in flights %}
+  <div class="flight">
+    <b>{{ f.airline }}</b> {{ f.flight_id }}
+    <span>{{ f.time }}</span>
+    <span>{{ f.seats }} seats left</span>
+    <b>₹{{ get_price(f, cabin) }}</b>
+    {% if f.seats > 0 %}
+      <a class="btn" href="/book/{{ f.flight_id }}?date={{ date }}&cabin={{ cabin }}">BOOK NOW</a>
+    {% else %}
+      <span class="error">Sold out</span>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {% if not flights %}
+    <p class="error">No flights found on this route.</p>
+  {% endif %}
+</div>
+{% endblock %}

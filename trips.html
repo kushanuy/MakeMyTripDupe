@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+  <h2>My Trips</h2>
+  {% if message %}<p class="ok">{{ message }}</p>{% endif %}
+
+  {% for b in trips %}
+  <div class="flight">
+    <b>{{ b.pnr }}</b>
+    {{ b.flight.origin }} → {{ b.flight.destination }} · {{ b.travel_date }} · {{ b.name }}
+    <b>₹{{ b.fare }}</b>
+    <span>{{ b.status }}</span>
+    {% if b.status == "Cancelled" %}
+      <span>Refund ₹{{ b.refund }}</span>
+    {% else %}
+      <form method="post" action="/cancel/{{ b.pnr }}"><button>CANCEL</button></form>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {% if not trips %}<p>You have no bookings yet.</p>{% endif %}
+</div>
+{% endblock %}
